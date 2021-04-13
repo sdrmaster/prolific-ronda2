@@ -1,0 +1,226 @@
+{% extends "surveyapp/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<hr class="style1">
+Elija la sociedad ideal
+<hr class="style1">
+{% endblock %}
+
+{% block content %}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<h1>Sociedades</h1>
+
+<table id="trellis">
+    <tr>
+        <td class="first"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<table id="trellis2">
+    <tr>
+        <td class="first"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<style>
+#trellis2 td {
+    width: 200px;
+    height: 200px;
+}
+#trellis2 td.first {
+    width: 300px;
+}
+
+</style>
+<style>
+#trellis td {
+    width: 200px;
+    height: 200px;
+}
+#trellis td.first {
+    width: 300px;
+}
+
+</style>
+
+<script>
+
+var charts = [],
+    containers = document.querySelectorAll('#trellis td'),
+    datasets = [{
+            name: 'A',
+            data: [92, 4.5, 2, 1, 0.50]
+        },
+        {
+            name: 'B',
+            data: [0.5, 1, 2, 4.5, 92]
+        },
+        {
+            name: 'C',
+            data: [80, 10, 5, 3.5, 1.5]
+        },
+
+    ];
+
+datasets.forEach(function(dataset, i) {
+    charts.push(Highcharts.chart(containers[i], {
+
+        chart: {
+            backgroundColor: 'url(https://www.highcharts.com/samples/graphics/sand.png)',
+            type: 'bar',
+            marginLeft: i === 0 ? 100 : 10
+        },
+        tooltip: {
+            valuePrefix: '$',
+        },
+        plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+        title: {
+            text: dataset.name,
+            align: 'left',
+            x: i === 0 ? 90 : 0
+        },
+
+        credits: {
+            enabled: false
+        },
+
+        xAxis: {
+            categories: ['Muy Rico', 'Rico', 'Ni Rico Ni Pobre', 'Pobre', 'Muy Pobre'],
+            labels: {
+                enabled: i === 0
+            }
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: null
+            },
+            min: 0,
+            max: 100
+
+
+        },
+
+
+        legend: {
+            enabled: false
+        },
+
+        series: [dataset]
+
+    }));
+});
+
+
+</script>
+
+<script>
+
+var charts = [],
+    containers = document.querySelectorAll('#trellis2 td'),
+    datasets = [{
+            name: 'D',
+            data: [15, 25, 45, 10, 5]
+        },
+        {
+            name: 'E',
+            data: [10, 15, 20, 25, 30]
+        },
+        {
+            name: 'F',
+            data: [20, 20, 20, 20, 20]
+        },
+
+    ];
+
+datasets.forEach(function(dataset, i) {
+    charts.push(Highcharts.chart(containers[i], {
+
+        chart: {
+            backgroundColor: 'url(https://www.highcharts.com/samples/graphics/sand.png)',
+            type: 'bar',
+            marginLeft: i === 0 ? 100 : 10
+        },
+        tooltip: {
+            valuePrefix: '$',
+        },
+        title: {
+            text: dataset.name,
+            align: 'left',
+            x: i === 0 ? 90 : 0
+        },
+
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+
+        xAxis: {
+            categories: ['Muy Rico', 'Rico', 'Ni Rico Ni Pobre', 'Pobre', 'Muy Pobre'],
+            labels: {
+                enabled: i === 0
+            }
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: null
+            },
+            min: 0,
+            max: 100
+
+
+        },
+
+
+        legend: {
+            enabled: false
+        },
+
+        series: [dataset]
+
+    }));
+});
+
+
+</script>
+<style>
+.space {
+  margin-top: 55px;
+
+}
+</style>
+<div class="space"></div>
+En este caso, por ejemplo, como puede observar en C, de cada 100 pesos que se produzcan o se generen, aquellos que ACTUALMENTE son muy ricos se llevarían en la sociedad ideal $80 pesos; el siguiente grupo se llevaría $10 y sigue así hasta llegar a los que son ACTUALMENTE más pobres que se llevarían $1.5 pesos en la sociedad ideal.
+<div class="space"></div>
+
+<b>Ahora, quiero pedirle que elija, desde su punto de vista ideal, cuál de las imágenes le gustaría que fuera la sociedad mexicana.</b>
+<hr>
+      {% formfield player.sociedad_ideal %}
+
+
+<button class="otree-btn-next btn btn-primary">Siguiente</button>
+{% endblock %}

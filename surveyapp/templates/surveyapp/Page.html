@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block app_styles %}
+<style>
+ @import url('https://fonts.googleapis.com/css?family=Abel');
+
+html, body {
+  background: url(https://www.highcharts.com/samples/graphics/sand.png);
+  font-family: Abel, Arial, Verdana, sans-serif;
+}
+.space {
+  margin-top: 80px;
+
+}
+</style>
+
+<style>
+hr.style-six {
+    border: 50;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+</style>
+
+<style>
+hr.style1{
+	border-top: 1px solid #97BAEC;
+}
+</style>
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends "surveyapp/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="space"></div>
+
+<b>¿Cuál es su edad?</b>
+<hr>
+    {% formfield player.edad %}
+<div class="space"></div>
+<b>¿Cuál es su sexo?</b>
+<hr>
+    {% formfield player.sexo %}
+<div class="space"></div>
+<b>¿Cuál es su estado civil?</b>
+<hr>
+    {% formfield player.es_civil %}
+<div class="space"></div>
+<b>¿En qué estado nació?</b>
+<hr>
+    {% formfield player.nacimiento %}
+<div class="space"></div>
+<b>¿Cuál fue el último NIVEL EDUCATIVO que alcanzó usted en la escuela?</b>
+<hr>
+    {% formfield player.educacion %}
+<div class="space"></div>
+<b>¿Actualmente usted es?</b>
+<hr>
+    {% formfield player.empleo%}
+<div class="space"></div>
+<b>¿El ingreso de su hogar en el trimestre anterior está en el rango de...?</b>
+<hr>
+    {% formfield player.ingreso_hogar%}
+<div class="space"></div>
+    <button class="otree-btn-next btn btn-primary">Finalizar</button>
+
+
+{% endblock %}

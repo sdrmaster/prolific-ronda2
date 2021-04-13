@@ -1,0 +1,337 @@
+{% extends "surveyapp/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+<hr class="style1">
+Uno de los principales problemas en México actualmente es el de la corrupción. Digamos que el Gobierno se compromete a eliminar la corrupción y con los recursos adicionales obtenidos aumentar inversiones sociales y de infraestructura.
+<hr class="style1">
+{% endblock %}
+
+{% block content %}
+<p>Teniendo en cuenta el contexto del encabezado, por favor, conteste las siguientes preguntas:</p>
+
+<div class="space"></div>
+
+<div class="space"></div>
+<p><b>A) De cada 10 pesos de su ingreso, ¿cuánto cree que DEBERÍA pagar usted en impuestos totales adicionales de lo que paga actualmente (incluye impuestos al consumo o IVA, ingreso, impuestos estatales, impuestos gasolina, entre otros)?</b></p>
+<hr>
+<input type="hidden" name="checkslider" value="0" id="id_checkslider"/>
+<p id="feedback_one"><br></p>
+<div class="slidecontainer2">
+<input type="range" name="impuestos_deber_individuo" value="0" step="1" style="width:300px" min="0" max="10" id="id_impuestos_deber_individuo" class="form-control">
+</div>
+<style>
+      .myclass::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #97BAEC;
+        border: 1px solid #000000;
+        height: 21px !important;
+        width: 8px !important;
+        border-radius: 0px !important;
+        background: #ffffff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -7px !important;
+    }
+
+    input[name=impuestos_deber_individuo] {
+        -webkit-appearance: none;
+        margin: 18px;
+        width: 100%;
+    }
+
+    input[name=impuestos_deber_individuo]:focus {
+        outline: none;
+    }
+
+    input[name=impuestos_deber_individuo]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        animate: 0.2s;
+        {#box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;#}
+        background: #007afe;
+        border-radius: 0px;
+        border: 0.0px solid #ffffff;
+    }
+
+    input[name=impuestos_deber_individuo]::-webkit-slider-thumb {
+        border: 0px;
+        height: 0px;
+        width: 0px;
+        border-radius: 0px;
+        -webkit-appearance: none;
+    }
+</style>
+
+
+<script>
+	$(document).ready(function () {
+        $('input[name=impuestos_deber_individuo]').on('input change', function () {
+            $('input[name=impuestos_deber_individuo]').addClass('myclass');
+        });
+    	$('input[name=impuestos_deber_individuo]').on('input', function() {
+        	document.getElementById("feedback_one").innerHTML = `¡Has seleccionado $`+$(this).val()+' pesos!';
+    	});
+
+    });
+</script>
+
+    <script>
+        $('input[name=impuestos_deber_individuo]').on('input', function(){
+            $('#id_checkslider').val(1);
+        });
+    </script>
+
+
+
+
+
+<style>
+  .otree-form-errors {
+    visibility: hidden;
+    display: none;
+}
+</style>
+
+
+
+{% if form.checkslider.errors %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Por favor, recuerde tomar su decisión moviendo los sliders.</h4>
+  <p>Gracias.</p>
+</div>
+{% endif %}
+
+<div class="space"></div>
+
+<p><b>B) De cada 10 pesos de ingreso de personas ricas, ¿cuánto cree que DEBERÍAN pagar en impuestos totales adicionales de lo que pagan actualmente (incluye impuestos al consumo o IVA, ingreso, impuestos estatales, impuestos gasolina, entre otros)?</b></p>
+<hr>
+<input type="hidden" name="checkslider2" value="0" id="id_checkslider2"/>
+<p id="feedback_two"><br></p>
+<div class="slidecontainer3">
+<input type="range" name="impuestos_deber_ricos" value="0" step="1" style="width:300px" min="0" max="10" id="id_impuestos_deber_ricos " class="form-control">
+</div>
+<style>
+      .myclass::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #97BAEC;
+        border: 1px solid #000000;
+        height: 21px !important;
+        width: 8px !important;
+        border-radius: 0px !important;
+        background: #ffffff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -7px !important;
+    }
+
+    input[name=impuestos_deber_ricos] {
+        -webkit-appearance: none;
+        margin: 18px;
+        width: 100%;
+    }
+
+    input[name=impuestos_deber_ricos]:focus {
+        outline: none;
+    }
+
+    input[name=impuestos_deber_ricos]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        animate: 0.2s;
+        {#box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;#}
+        background: #007afe;
+        border-radius: 0px;
+        border: 0.0px solid #ffffff;
+    }
+
+    input[name=impuestos_deber_ricos]::-webkit-slider-thumb {
+        border: 0px;
+        height: 0px;
+        width: 0px;
+        border-radius: 0px;
+        -webkit-appearance: none;
+    }
+</style>
+
+
+<script>
+	$(document).ready(function () {
+        $('input[name=impuestos_deber_ricos]').on('input change', function () {
+            $('input[name=impuestos_deber_ricos]').addClass('myclass');
+        });
+    	$('input[name=impuestos_deber_ricos]').on('input', function() {
+        	document.getElementById("feedback_two").innerHTML = `¡Has seleccionado $`+$(this).val()+' pesos!';
+    	});
+
+    });
+</script>
+
+    <script>
+        $('input[name=impuestos_deber_ricos]').on('input', function(){
+            $('#id_checkslider2').val(1);
+        });
+    </script>
+
+{% if form.checkslider2.errors %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Por favor, recuerde tomar su decisión moviendo los sliders.</h4>
+  <p>Gracias.</p>
+</div>
+{% endif %}
+<div class="space"></div>
+<p><b>C) De cada 10 pesos de ingreso de personas pobres, ¿cuánto cree que DEBERÍAN pagar en impuestos totales adicionales de lo que pagan actualmente (incluye impuestos al consumo o IVA, ingreso, impuestos estatales, impuestos gasolina, entre otros)?</b></p>
+<hr>
+<input type="hidden" name="checkslidernew" value="0" id="id_checkslidernew"/>
+<p id="feedback_new"><br></p>
+<div class="slidecontainerr">
+<input type="range" name="impuestos_deber_pobres" value="0" step="1" style="width:300px" min="0" max="10" id="id_impuestos_deber_pobres" class="form-control">
+</div>
+<style>
+      .myclass::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #97BAEC;
+        border: 1px solid #000000;
+        height: 21px !important;
+        width: 8px !important;
+        border-radius: 0px !important;
+        background: #ffffff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -7px !important;
+    }
+
+    input[name=impuestos_deber_pobres] {
+        -webkit-appearance: none;
+        margin: 18px;
+        width: 100%;
+    }
+
+    input[name=impuestos_deber_pobres]:focus {
+        outline: none;
+    }
+
+    input[name=impuestos_deber_pobres]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        animate: 0.2s;
+        {#box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;#}
+        background: #007afe;
+        border-radius: 0px;
+        border: 0.0px solid #ffffff;
+    }
+
+    input[name=impuestos_deber_pobres]::-webkit-slider-thumb {
+        border: 0px;
+        height: 0px;
+        width: 0px;
+        border-radius: 0px;
+        -webkit-appearance: none;
+    }
+</style>
+
+
+<script>
+	$(document).ready(function () {
+        $('input[name=impuestos_deber_pobres]').on('input change', function () {
+            $('input[name=impuestos_deber_pobres]').addClass('myclass');
+        });
+    	$('input[name=impuestos_deber_pobres]').on('input', function() {
+        	document.getElementById("feedback_new").innerHTML = `¡Has seleccionado $`+$(this).val()+' pesos!';
+    	});
+
+    });
+</script>
+
+    <script>
+        $('input[name=impuestos_deber_pobres]').on('input', function(){
+            $('#id_checkslidernew').val(1);
+        });
+    </script>
+
+{% if form.checkslidernew.errors %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Por favor, recuerde tomar su decisión moviendo los sliders.</h4>
+  <p>Gracias.</p>
+</div>
+{% endif %}
+<div class="space"></div>
+<p><b>D) De cada 10 pesos de ingreso de una persona con ingreso mediano o que no es ni tan pobre ni tan rica, ¿cuánto cree que DEBERÍAN pagar en impuestos totales adicionales de lo que pagan actualmente (incluye impuestos al consumo o IVA, ingreso, impuestos estatales, impuestos gasolina, entre otros)?</b></p>
+<hr>
+<input type="hidden" name="checkslidermed" value="0" id="id_checkslidermed"/>
+<p id="feedback_med"><br></p>
+<div class="slidecontainerrr">
+<input type="range" name="impuestos_deber_med" value="0" step="1" style="width:300px" min="0" max="10" id="id_impuestos_deber_med" class="form-control">
+</div>
+<style>
+      .myclass::-webkit-slider-thumb {
+        box-shadow: 1px 1px 1px #000000, 0px 0px 1px #97BAEC;
+        border: 1px solid #000000;
+        height: 21px !important;
+        width: 8px !important;
+        border-radius: 0px !important;
+        background: #ffffff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -7px !important;
+    }
+
+    input[name=impuestos_deber_med] {
+        -webkit-appearance: none;
+        margin: 18px;
+        width: 100%;
+    }
+
+    input[name=impuestos_deber_med]:focus {
+        outline: none;
+    }
+
+    input[name=impuestos_deber_med]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 8.4px;
+        cursor: pointer;
+        animate: 0.2s;
+        {#box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;#}
+        background: #007afe;
+        border-radius: 0px;
+        border: 0.0px solid #ffffff;
+    }
+
+    input[name=impuestos_deber_med]::-webkit-slider-thumb {
+        border: 0px;
+        height: 0px;
+        width: 0px;
+        border-radius: 0px;
+        -webkit-appearance: none;
+    }
+</style>
+
+
+<script>
+	$(document).ready(function () {
+        $('input[name=impuestos_deber_med]').on('input change', function () {
+            $('input[name=impuestos_deber_med]').addClass('myclass');
+        });
+    	$('input[name=impuestos_deber_med]').on('input', function() {
+        	document.getElementById("feedback_med").innerHTML = `¡Has seleccionado $`+$(this).val()+' pesos!';
+    	});
+
+    });
+</script>
+
+    <script>
+        $('input[name=impuestos_deber_med]').on('input', function(){
+            $('#id_checkslidermed').val(1);
+        });
+    </script>
+
+{% if form.checkslidermed.errors %}
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Por favor, recuerde tomar su decisión moviendo los sliders.</h4>
+  <p>Gracias.</p>
+</div>
+{% endif %}
+<div class="space"></div>
+<button class="otree-btn-next btn btn-primary">Siguiente</button>
+{% endblock %}

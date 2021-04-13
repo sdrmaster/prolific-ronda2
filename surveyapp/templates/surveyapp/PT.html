@@ -1,0 +1,23 @@
+{% extends "surveyapp/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<p><b>¿El Gobierno debe promover que más pobres puedan ser ricos?</b></p>
+<hr>
+    {% formfield player.gobierno_apoyo %}
+<div class="space"></div>
+<p><b>Según su opinión, ¿el Gobierno debe reducir las diferencias de ingreso?</b></p>
+<hr>
+    {% formfield player.gobierno_diferencias %}
+<div class="space"></div>
+
+
+<button class="otree-btn-next btn btn-primary">Siguiente</button>
+{% endblock %}

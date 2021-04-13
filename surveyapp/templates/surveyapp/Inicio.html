@@ -1,0 +1,33 @@
+{% extends "surveyapp/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+
+<b><p style="color:#97BAEC">Estudio de las Visiones sobre la Sociedad y la Economía</p></b>
+
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<p>Somos un par de académicos de El Colegio de México. Nuestro objetivo es entender cuáles son las visiones de las y los mexicanos sobre la justicia, el gobierno, la desigualdad y los impuestos.</p>
+
+<p>El factor más importante de esta investigación es que <b>sus respuestas sean completamente honestas</b>. Asimismo, es muy importante para el éxito de nuestro proyecto que <b>complete el cuestionario hasta el final</b>, una vez que haya empezado.</p>
+
+
+DEBE CONFIRMAR SER RESIDENTE DE MÉXICO Y SER MAYOR DE EDAD PARA PARTICIPAR EN NUESTRO ESTUDIO:
+<hr>
+    {% formfield player.participa%}
+<div class="space"></div>
+POR FAVOR, INSERTE SU PROLIFIC ID:
+<hr>
+    {% formfield player.prolific_id%}
+<button class="otree-btn-next btn btn-primary">Siguiente</button>
+{% endblock %}
